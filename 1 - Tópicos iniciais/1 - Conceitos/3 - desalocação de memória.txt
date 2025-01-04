@@ -1,0 +1,61 @@
+Garbage collector: é um processo que automatiza o gerenciamento de memória de um programa em execução. O Garbage collector monitora os objetos alocados dinamicamente pelo programa (no heap), desalocando aqueles que não estão mais sendo utilizados.
+
+Product p1, p2
+
+p1 = new Product("TV", 900.00, 0)
+p2 = new Product("Mouse", 30.00, 0)
+
+p1 = p2 (p1 vai apontar para p2, então o antigo valor 'new Product("TV", 900.00, 0)' será deslocado pelo garbage collector)
+
+Desalocação por escopo
+void method1() {
+int x = 10;
+if (x > 0) {
+    int y = 20;
+}
+System.out.println(x);
+}
+
+* Objetos alocados dinamicamente, quando não possuem mais referência para eles, serão desalocados pelo garbage collector
+* Variáveis locais são deslocadas imadiatamente assim que seu escopo sai de execução
+
+O que são Stack e Heap?
+Stack (Pilha):
+É uma estrutura de memória usada para armazenar variáveis locais e chamadas de funções. Quando você chama uma função, o espaço para suas variáveis locais é alocado na pilha. Assim que a função termina, esse espaço é desalocado automaticamente (desalocação por escopo).
+
+Heap (Montículo):
+É uma área de memória usada para armazenar objetos que são alocados dinamicamente, ou seja, com o uso de new em linguagens como Java, C#, TypeScript. Objetos no heap permanecem alocados até que o Garbage Collector os remova.
+
+Garbage Collector (GC):
+O Garbage Collector (coletor de lixo) é um processo automático que:
+Monitora o heap.
+Identifica objetos que não possuem mais referências apontando para eles.
+Libera a memória ocupada por esses objetos.
+
+Exemplo explicando o Garbage Collector:
+class Product {
+    constructor(public name: string, public price: number) {}
+}
+
+let p1 = new Product("TV", 900.00);
+let p2 = new Product("Mouse", 30.00);
+
+p1 = p2; // p1 agora aponta para o mesmo objeto de p2 no heap
+
+p1 inicialmente apontava para o objeto TV. Quando você faz p1 = p2, o objeto TV perde sua referência. O Garbage Collector percebe que não há mais referência para o objeto TV e o desaloca automaticamente do heap.
+
+Desalocação por escopo (Stack):
+function example() {
+    let x = 10; // armazenado na stack
+    if (x > 0) {
+        let y = 20; // também armazenado na stack
+    }
+    console.log(x); // y já foi desalocado porque saiu do escopo
+}
+x e y são variáveis locais armazenadas na stack. Assim que o bloco if termina, y é desalocado automaticamente. Quando a função example() termina, x também é desalocado.
+
+Resumo:
+Stack: usado para variáveis locais e controle de chamadas de função.
+Heap: usado para objetos criados dinamicamente com new.
+GC: desaloca objetos no heap quando não há mais referências para eles.
+Desalocação por escopo: variáveis locais no stack são desalocadas ao sair do escopo.
