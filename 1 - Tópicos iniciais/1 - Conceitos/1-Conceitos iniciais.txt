@@ -1,0 +1,18 @@
+Estrutura de dados é sobre a organização e armazenamento de dados na memória de um computador. Isso envolve design e implementação de métodos para organizar e gerenciar dados de maneira que permita uma recuperação e modificação eficientes.
+
+Estrtutura de dados são fundamentos essenciais para escrever software robusto e eficiente.
+
+Objetivos: 
+- Organização e Abstração dos dados
+- Eficiência na recuperação e modificação de dados
+- Bom gerenciamento de memória
+
+Arrays = coleção de elementos ocupando uma porção *contígua de memória*. Vantagem: Permite rápido acesso aos elementos pelo seu índice.
+
+Listas = coleção de elementos armazenados em nós sequenciais. Nó é cada elemento da minha coleção. Dentro do nó vou ter a referência para o conteúdo e também para o próximo elemento. Uma lista não precisa que os elementos ocupem uma porção contígua de memória, eles podem estar espalhados na memória. Desvantagem: acesso sequencial
+
+Árvores = coleção de elementos armazenados em nós de forma hierárquica
+
+Grafos = Coleção de elementos armazenados em nós com livre conexão entre eles
+
+Tabelas Hash = coleção de elementos que usa uma função hash para mapear chaves aos elementos. Permite rápido acesso aos elementos pela sua chave. Tempo rápido para acessar elemento a partir da chave
