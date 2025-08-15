@@ -28,6 +28,10 @@ export default class Stack {
     count() {
         return this.list.length
     }
+
+    clear() {
+        this.list = []
+    }
 }
 
 const stack = new Stack()
@@ -45,6 +49,9 @@ console.log("stack.peek: " + stack.peek())
 
 // stack.pop()
 // console.log("Array: " + stack.arr)
+
+// stack.clear()
+// console.log("stack.isEmpty: " + stack.isEmpty())
 
 while(!stack.isEmpty()) {
     const item = stack.pop()

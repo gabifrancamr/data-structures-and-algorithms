@@ -6,7 +6,7 @@ export default class Stack {
     }
 
     push(item) {
-        if(this.isFull) {
+        if(this.isFull()) {
             throw new Error("Stack is full")
         }
         this.top++
@@ -14,7 +14,7 @@ export default class Stack {
     }
 
     pop() {
-        if(this.isEmpty) {
+        if(this.isEmpty()) {
             throw new Error("Stack is empty")
         }
         const item = this.arr[this.top]
@@ -36,14 +36,18 @@ export default class Stack {
     }
 
     peek() {
-        if(this.isEmpty) {
+        if(this.isEmpty()) {
             throw new Error("Stack is empty")
         }
         return this.arr[this.top]
     }
+
+    clear() {
+        this.top = -1
+    }
 }
 
-const stack = new Stack(2)
+const stack = new Stack(100)
 
 console.log("stack.isEmpty: " + stack.isEmpty())
 console.log("stack.count: " + stack.count())
@@ -55,6 +59,9 @@ stack.push("Ana")
 console.log("stack.isEmpty: " + stack.isEmpty())
 console.log("stack.count: " + stack.count())
 console.log("stack.peek: " + stack.peek())
+
+// stack.clear()
+// console.log("stack.isEmpty: " + stack.isEmpty())
 
 // stack.pop()
 // console.log("Array: " + stack.arr)
